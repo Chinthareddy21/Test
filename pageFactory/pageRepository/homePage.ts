@@ -41,7 +41,7 @@ export class HomePage extends HomePageObjects {
     }
 
     async logocheck(): Promise<void> {
-        await this.page.waitForLoadState('load')
+        await this.page.waitForLoadState('load');
         await webActions.clickElement(HomePageObjects.LOGO_XPATH);
         await webActions.verifyElementIsDisplayed(HomePageObjects.CONTACT_US_XPATH, 'fail');
         await this.page.screenshot({ path: './screenshot/HomePageFunctionalityTests/HomePageLogoCheck.png' });
@@ -57,6 +57,7 @@ export class HomePage extends HomePageObjects {
     }
 
     async firstComponentIsAfterNavigationbar(): Promise<void> {
+        await this.page.waitForLoadState('load');
         await this.page.locator(HomePageObjects.MENU_XPATH).isVisible();
         await this.page.screenshot({ path: './screenshot/homePageFunctionalityTests/firstComponentIsImmediateAfterMenuBar.png' });
     }
